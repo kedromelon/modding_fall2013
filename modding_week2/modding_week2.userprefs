@@ -1,0 +1,21 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Standard Assets/Toon Shading/Sources/Shaders/Toony-LightedOutline.shader">
+    <Files>
+      <File FileName="Assets/scripts/modelDance.cs" Line="21" Column="3" />
+      <File FileName="Assets/scripts/cubeSpin.cs" Line="16" Column="32" />
+      <File FileName="Assets/scripts/cameraSpin.cs" Line="12" Column="18" />
+      <File FileName="Assets/scripts/ballSpin.cs" Line="16" Column="41" />
+      <File FileName="Assets/scripts/pulse.cs" Line="14" Column="52" />
+      <File FileName="Assets/scripts/cameraMove.cs" Line="15" Column="45" />
+      <File FileName="Assets/scripts/guySpin.cs" Line="17" Column="21" />
+      <File FileName="Assets/scripts/VectorFun.cs" Line="23" Column="9" />
+      <File FileName="Assets/scripts/globeIn.cs" Line="23" Column="3" />
+      <File FileName="Assets/Standard Assets/Toon Shading/Sources/Shaders/Toony-LightedOutline.shader" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
