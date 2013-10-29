@@ -7,8 +7,11 @@ public class Platformer : MonoBehaviour {
 	public float turnSpeed = 1;
 	public float jumpSpeed = 1;
 	public float fallSpeed = 1;
+	public Transform camera;
+	public Transform particleLand;
 	Vector3 moveVector;
 	bool grounded = false;
+	
 	
 	// Use this for initialization
 	void Start () {
@@ -24,26 +27,30 @@ public class Platformer : MonoBehaviour {
 		RaycastHit hit = new RaycastHit();
 		
 		if (Physics.Raycast(ray, out hit, 1.25f)){
+			if (grounded == false){
+				Instantiate (particleLand, 
+					new Vector3(transform.position.x, transform.position.y - 1.1f, transform.position.z), 
+					particleLand.rotation);
+			}
 			grounded = true;
 		}else{
 			grounded = false;
 		}
 		
-		if(Input.GetKey(KeyCode.W)){
-			moveVector += transform.forward * speed;
-		}
-		if(Input.GetKey(KeyCode.S)){
-			moveVector -= transform.forward * speed;
-		}
-		if(Input.GetKey(KeyCode.A)){
-			transform.Rotate( 0f, -turnSpeed * Time.deltaTime, 0f );
-		}
-		if(Input.GetKey(KeyCode.D)){
-			transform.Rotate( 0f, turnSpeed * Time.deltaTime, 0f );
+		
+		moveVector += Input.GetAxis("Vertical") * camera.transform.forward * speed;
+		
+		moveVector += Input.GetAxis("Horizontal") * camera.transform.right * speed;
+		
+		if(grounded == true){
+			moveVector += Input.GetAxis("Jump") * transform.up * jumpSpeed;
 		}
 		
-		if(Input.GetKeyDown(KeyCode.Space) && grounded == true){
-			moveVector += transform.up * jumpSpeed;
+		if(rigidbody.velocity != Vector3.zero){
+			transform.rotation = Quaternion.LookRotation( rigidbody.velocity );
+			Vector3 eulerAngles = transform.rotation.eulerAngles;
+			eulerAngles = new Vector3(0, eulerAngles.y, 0);
+			transform.rotation = Quaternion.Euler(eulerAngles);
 		}
 		
 	}
