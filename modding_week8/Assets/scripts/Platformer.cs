@@ -10,7 +10,7 @@ public class Platformer : MonoBehaviour {
 	public Transform camera;
 	public Transform particleLand;
 	Vector3 moveVector;
-	bool grounded = false;
+	public bool grounded = false;
 	
 	
 	// Use this for initialization
@@ -36,14 +36,16 @@ public class Platformer : MonoBehaviour {
 		}else{
 			grounded = false;
 		}
-		
-		
+			
 		moveVector += Input.GetAxis("Vertical") * camera.transform.forward * speed;
 		
 		moveVector += Input.GetAxis("Horizontal") * camera.transform.right * speed;
 		
 		if(grounded == true){
 			moveVector += Input.GetAxis("Jump") * transform.up * jumpSpeed;
+			if(Input.GetAxis("Jump") != 0){
+				audio.Play();
+			}
 		}
 		
 		if(rigidbody.velocity != Vector3.zero){
@@ -52,6 +54,7 @@ public class Platformer : MonoBehaviour {
 			eulerAngles = new Vector3(0, eulerAngles.y, 0);
 			transform.rotation = Quaternion.Euler(eulerAngles);
 		}
+		
 		
 	}
 	
@@ -66,8 +69,12 @@ public class Platformer : MonoBehaviour {
 			rigidbody.AddForce( new Vector3(-rigidbody.velocity.x, 0f, -rigidbody.velocity.z), ForceMode.Acceleration);			
 		}
 		
-		if (rigidbody.velocity.y < 0){
-				rigidbody.AddForce( new Vector3(0, -rigidbody.velocity.y , 0) + Physics.gravity * fallSpeed, ForceMode.Acceleration);
+		if (rigidbody.velocity.y < 0 && grounded == false){
+			rigidbody.AddForce( new Vector3(0, -rigidbody.velocity.y , 0) + Physics.gravity * fallSpeed, ForceMode.Acceleration);
 		}
+	}
+	
+	void OnTriggerEnter () {
+		transform.position = new Vector3(0f,0f,0f);
 	}
 }
