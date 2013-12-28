@@ -1,0 +1,29 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Pixelplacement/ScreenFade/Example/Scripts/Tester.cs">
+    <Files>
+      <File FileName="Assets/Pixelplacement/ScreenFade/Example/Scripts/Tester.cs" Line="90" Column="10" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="Assembly-CSharp" expanded="True">
+            <Node name="Pixelplacement" expanded="True">
+              <Node name="ScreenFade" expanded="True">
+                <Node name="Example" expanded="True">
+                  <Node name="Scripts" expanded="True">
+                    <Node name="Tester.cs" selected="True" />
+                  </Node>
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
